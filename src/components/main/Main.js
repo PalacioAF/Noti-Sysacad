@@ -10,7 +10,6 @@ const Main = () => {
 
   useEffect(() => {
     authenticatedUser();
-    // eslint-disable-next-line
   }, []);
 
   return (
