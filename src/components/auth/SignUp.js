@@ -10,7 +10,7 @@ const SignUp = (props) => {
   const authContext = useContext(AuthContext);
   const { message, authenticated, signUp } = authContext;
 
-  //En caso que el usuario se haya autenticado o registrado o registro duplicado
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (authenticated) {
       props.history.push("/main");

@@ -5,6 +5,7 @@ const Bar = () => {
   const authContext = useContext(AuthContext);
   const { user, authenticatedUser, signOff } = authContext;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     authenticatedUser();
   }, []);

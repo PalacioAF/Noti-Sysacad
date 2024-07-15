@@ -7,6 +7,7 @@ const NotificationList = () => {
   const notificationsContext = useContext(notificationContext);
   const { notifications, getNotifications } = notificationsContext;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     getNotifications();
   }, []);

@@ -13,7 +13,7 @@ const Login = (props) => {
 
   const [loading, setLoading] = useState(false);
 
-  // En caso de que el password o usuario no exista
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setLoading(false);
     if (authenticated) {

@@ -6,6 +6,7 @@ const RutaPrivada = ({ component: Component, ...props }) => {
   const authContext = useContext(AuthContext);
   const { authenticated, loading, authenticatedUser } = authContext;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     authenticatedUser();
   }, []);
