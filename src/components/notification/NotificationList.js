@@ -14,7 +14,7 @@ const NotificationList = () => {
 
   return (
     <Fragment>
-      <h2>Noti-Sysacad</h2>
+      <h2>NotiAcad</h2>
 
       <ul className="listado-tareas">
         {notifications.length === 0 ? (
