@@ -1,13 +1,18 @@
 import React, { useState, useContext } from "react";
 import notificationContext from "../../context/notification/notificationContext";
 
+const now = new Date();
+now.setHours(now.getHours() - 3);
+const today = now.toISOString().split('T')[0];
+
 const FormNotification = () => {
   const [notification, setNotification] = useState({
     title: "",
-    description: ""
+    description: "",
+    date:today
   });
 
-  const { title, description } = notification;
+  const { title, description, date } = notification;
 
   const notificationsContext = useContext(notificationContext);
   const {
@@ -26,8 +31,7 @@ const FormNotification = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    if (title.trim() === "" || description.trim() === "") {
+    if (title.trim() === "" || description.trim() === "" || date.trim() === "") {
       valitateNotification();
       return;
     }
@@ -38,7 +42,8 @@ const FormNotification = () => {
 
     setNotification({
       title: "",
-      description: ""
+      description: "",
+      date:today
     });
   };
 
@@ -49,16 +54,27 @@ const FormNotification = () => {
           <input
             type="text"
             className="input-text"
-            placeholder="título..."
+            placeholder="Título..."
             name="title"
             value={title}
             onChange={handleChange}
           />
         </div>
         <div className="contenedor-input">
+          <input
+            type="date"
+            className="input-text"
+            placeholder="Fecha"
+            name="date"
+            value={date}
+            min={today}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="contenedor-input">
           <textarea
             className="input-textarea"
-            placeholder="descripción..."
+            placeholder="Descripción..."
             name="description"
             value={description}
             onChange={handleChange}
@@ -74,7 +90,7 @@ const FormNotification = () => {
       </form>
       {errorNotification ? (
         <p className="mensaje error">
-          El título de la notificación es obligatorio
+          Ingresar todos los datos de la notificación
         </p>
       ) : null}
     </div>

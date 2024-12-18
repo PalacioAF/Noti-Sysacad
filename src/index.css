@@ -262,6 +262,15 @@ aside  {
 .mensaje:hover {
   cursor: default;
 }
+.fecha {
+  font-weight: 900;
+  font-family: var(--textFont);
+  font-size: 1rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  border: none;
+}
 .completo,
 .correcto {
   background-color: rgba(154, 252, 154, .3);
@@ -269,6 +278,10 @@ aside  {
 }
 .incompleto{
   background-color: rgba(255, 178, 178, .4);
+  color: var(--gris3);
+}
+.pendiente {
+  background-color: rgb(253, 255, 111);
   color: var(--gris3);
 }
 

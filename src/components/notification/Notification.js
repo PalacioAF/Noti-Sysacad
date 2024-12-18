@@ -4,6 +4,11 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 const Notification = ({ notification }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
+  const formatDate = (dateString) => {
+    const [year, month, day] = dateString.split("-");
+    return `${day}-${month}-${year}`;
+  };
+
   return (
     <li className="tarea sombra">
       <div className="grid-container">
@@ -13,7 +18,11 @@ const Notification = ({ notification }) => {
         </div>
 
         <div className="estado">
-          {notification.state ? (
+          {notification.state === null ? (
+            <button type="button" className="pendiente">
+              Pendiente
+            </button>
+          ) : notification.state ? (
             <button type="button" className="completo">
               Completo
             </button>
@@ -36,6 +45,7 @@ const Notification = ({ notification }) => {
             </span>
           )}
         </div>
+        <p className="fecha">{notification.date && formatDate(notification.date)}</p>
       </div>
     </li>
   );
